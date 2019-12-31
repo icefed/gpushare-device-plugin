@@ -22,6 +22,8 @@ const (
 	sandboxIDLabelKey           = "io.kubernetes.sandbox.id"
 
 	envNVGPU               = "NVIDIA_VISIBLE_DEVICES"
+	envNVGPUCapabilities   = "NVIDIA_DRIVER_CAPABILITIES"
+	NVGPUCapabilitiesAll   = "compute,video,utility"
 	EnvResourceIndex       = "ALIYUN_COM_GPU_MEM_IDX"
 	EnvResourceByPod       = "ALIYUN_COM_GPU_MEM_POD"
 	EnvResourceByContainer = "ALIYUN_COM_GPU_MEM_CONTAINER"

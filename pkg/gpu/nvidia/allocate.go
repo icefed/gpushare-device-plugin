@@ -6,7 +6,7 @@ import (
 
 	log "github.com/golang/glog"
 	"golang.org/x/net/context"
-	"k8s.io/api/core/v1"
+	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	pluginapi "k8s.io/kubernetes/pkg/kubelet/apis/deviceplugin/v1beta1"
 )
@@ -115,6 +115,7 @@ func (m *NvidiaDevicePlugin) Allocate(ctx context.Context,
 			response := pluginapi.ContainerAllocateResponse{
 				Envs: map[string]string{
 					envNVGPU:               candidateDevID,
+					envNVGPUCapabilities:   NVGPUCapabilitiesAll,
 					EnvResourceIndex:       fmt.Sprintf("%d", id),
 					EnvResourceByPod:       fmt.Sprintf("%d", podReqGPU),
 					EnvResourceByContainer: fmt.Sprintf("%d", reqGPU),
